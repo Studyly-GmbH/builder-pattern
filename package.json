@@ -4,8 +4,8 @@
   "version": "2.2.0",
   "license": "MIT",
   "scripts": {
-    "build": "yarn run tsup ./src/index.ts --format cjs,esm",
-    "buildWithDts": "yarn run tsup ./src/index.ts --format cjs,esm --dts --sourcemap",
+    "build": "yarn run tsup ./src/index.ts --format esm",
+    "buildWithDts": "yarn run tsup ./src/index.ts --format esm --dts --sourcemap",
     "test": "jest",
     "lint": "eslint -c .eslintrc.js --ext .ts src/**/*.ts __tests__/**/*.ts",
     "prepublishOnly": "rimraf dist && yarn run buildWithDts"
