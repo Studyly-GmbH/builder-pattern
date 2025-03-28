@@ -1,9 +1,9 @@
-declare type IBuilder<T> = {
+type IBuilder<T> = {
     [k in keyof T]-?: ((arg: T[k]) => IBuilder<T>) & (() => T[k]);
 } & {
     build(): T;
 };
-declare type Clazz<T> = new (...args: unknown[]) => T;
+type Clazz<T> = new (...args: unknown[]) => T;
 /**
  * Create a Builder for a class. Returned objects will be of the class type.
  *
@@ -24,7 +24,7 @@ declare function Builder<T>(type: Clazz<T>, template?: Partial<T> | null, overri
  */
 declare function Builder<T>(template?: Partial<T> | null, override?: Partial<T> | null): IBuilder<T>;
 
-declare type IStrictBuilder<T, B = Record<string, unknown>> = {
+type IStrictBuilder<T, B = Record<string, unknown>> = {
     [k in keyof T]-?: ((arg: T[k]) => IStrictBuilder<T, B & Record<k, T[k]>>) & (() => T[k]);
 } & {
     build: B extends T ? () => T : never;
@@ -37,4 +37,4 @@ declare type IStrictBuilder<T, B = Record<string, unknown>> = {
  */
 declare function StrictBuilder<T>(): IStrictBuilder<T>;
 
-export { Builder, IBuilder, IStrictBuilder, StrictBuilder };
+export { Builder, type IBuilder, type IStrictBuilder, StrictBuilder };
