@@ -30,7 +30,7 @@ export function StrictBuilder<T>(): IStrictBuilder<T> {
           }
           
           built[prop.toString()] = args[0];
-          return strictbuilder as IStrictBuilder<T>;
+          return strictbuilder;
         };
       }
     }

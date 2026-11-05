@@ -2,12 +2,16 @@
   "name": "builder-pattern",
   "repository": "https://github.com/Vincent-Pang/builder-pattern.git",
   "version": "2.2.0",
+  "engines": {
+    "node": "^24.15.0",
+    "npm": ">=11.19.1"
+  },
   "license": "MIT",
   "scripts": {
     "build": "tsup ./src/index.ts --format esm",
     "buildWithDts": "tsup ./src/index.ts --format esm --dts --sourcemap",
     "test": "jest",
-    "lint": "eslint -c .eslintrc.js --ext .ts src/**/*.ts __tests__/**/*.ts",
+    "lint": "eslint src __tests__",
     "prepublishOnly": "rimraf dist && npm run buildWithDts"
   },
   "main": "./dist/index.js",
@@ -26,22 +30,27 @@
     "coverageDirectory": "test_coverage_dir",
     "collectCoverageFrom": [
       "src/**/*.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
     ]
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
-    "eslint": "^9.0.0",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-jsdoc": "^61.0.0",
-    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint": "^10.0.0",
     "jest": "^30.0.0",
-    "prettier": "3.6.2",
+    "prettier": "3.9.9",
     "rimraf": "^6.0.0",
     "ts-jest": "^29.0.0",
     "tsup": "^8.5.0",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.71.1"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "esbuild@0.27.2": true,
+    "unrs-resolver@1.12.2": true,
+    "fsevents@2.3.3": false
   }
 }
-
