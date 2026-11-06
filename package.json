@@ -48,9 +48,9 @@
     "typescript-eslint": "^8.72.0"
   },
   "allowScripts": {
-    "@parcel/watcher@2.6.0": true,
-    "esbuild@0.27.7": true,
-    "fsevents@2.3.3": false,
-    "unrs-resolver@1.12.2": false
+    "@parcel/watcher": true,
+    "esbuild": true,
+    "fsevents": false,
+    "unrs-resolver": false
   }
 }
